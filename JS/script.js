@@ -19,12 +19,16 @@ async function loadSongsJson() {
 }
 
 // get songs of a folder from json
+
+
+// get songs of a folder from json
 async function getSongs(folder) {
     currfolder = folder;
     let folderObj = songData.find(f => f.folder === folder);
     if (!folderObj) return [];
 
-    songs = folderObj.songs.map(s => s.file);
+    // store full path in songs array
+    songs = folderObj.songs.map(s => `${folderObj.folder}/${s.file}`);
 
     let songUL = document.querySelector(".songList ul");
     songUL.innerHTML = "";
@@ -45,13 +49,15 @@ async function getSongs(folder) {
 
     Array.from(songUL.getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", () => {
-            playMusic(e.querySelector(".info div").innerHTML.trim());
+            // pass the full path to playMusic
+            let track = e.querySelector(".info div").innerHTML.trim();
+            let songObj = folderObj.songs.find(s => s.title === track);
+            if (songObj) playMusic(`${folderObj.folder}/${songObj.file}`);
         });
     });
 
     return songs;
 }
-
 // play a song
 const playMusic = (track, pause = false) => {
     let songObj = songs.find(s => s.includes(track));
@@ -86,14 +92,15 @@ async function displayAlbums() {
         </div>`;
     });
 
+     // click event for each card
     Array.from(document.getElementsByClassName("card")).forEach(card => {
         card.addEventListener("click", async item => {
-            songs = await getSongs(item.currentTarget.dataset.folder);
-            playMusic(songs[0]);
+            let folderName = item.currentTarget.dataset.folder;
+            await getSongs(folderName);           // load playlist
+            playMusic(songs[0]);                  // play first song
         });
     });
 }
-
 // main function
 async function main() {
     await loadSongsJson();
