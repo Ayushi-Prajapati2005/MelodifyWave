@@ -1,0 +1,20 @@
+[
+  {
+    "folder": "ncs",
+    "songs": [
+      "songs/ncs/kabira.mp3",
+      "songs/ncs/kaun-tujhe.mp3",
+      "songs/ncs/sawaar-loo.mp3",
+       "songs/ncs/zehnaseeb.mp3",
+       "songs/ncs/tere-bina.mp3",
+      
+    ]
+  },
+  {
+    "folder": "Angry_(mood)",
+    "songs": [
+      "songs/Angry_(mood)/ANIMAL_ ARJAN VAILLY.mp3",
+      "songs/Angry_(mood)/aarambh hai prachand.mp3"
+    ]
+  }
+]
