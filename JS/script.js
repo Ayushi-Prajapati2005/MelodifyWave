@@ -74,44 +74,25 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`/songs/`);
-    let response = await a.text();
-    let div = document.createElement("div");
-    div.innerHTML = response;
-    let anchors = div.getElementsByTagName("a");
     let cardContainer = document.querySelector(".cardContainer");
-    let array = Array.from(anchors)
-        for (let index = 0; index < array.length; index++) {
-            const e = array[index];
-            
-        
-        if (e.href.includes("/songs")) {
-            let folder = (e.href.split("/").slice(-2)[0]);
-            //get metadata of folder
+    cardContainer.innerHTML = "";
 
-            let a = await fetch(`/songs/${folder}/info.json`)
-            let response = await a.json();
-            cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card">
-                        <div  class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64">
-
-                                <!-- Centered icon inside -->
-                                <g transform="translate(6,6) scale(0.85)">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" stroke-width="1.5" fill="#000"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </g>
-                            </svg>
-                        </div>
-                        <img src="/songs/${folder}/cover.jpg" alt="${response.title}">
-                        <h2>${response.title}</h2>
-                        <p>${response.description}</p>
-                    </div>
-                </div>`;
-        }
-    }
+    songData.forEach(folder => {
+        cardContainer.innerHTML += `<div data-folder="${folder.folder}" class="card">
+            <div class="play">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64">
+                    <g transform="translate(6,6) scale(0.85)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" stroke-width="1.5" fill="#000" stroke-linejoin="round"/>
+                        </svg>
+                    </g>
+                </svg>
+            </div>
+            <img src="${folder.cover}" alt="${folder.folder}">
+            <h2>${folder.title}</h2>
+            <p>${folder.description || ""}</p>
+        </div>`;
+    });
      //load the playlist when the user clicks on card
     Array.from(document.getElementsByClassName("card")).forEach(card => {
         card.addEventListener("click", async item => {
