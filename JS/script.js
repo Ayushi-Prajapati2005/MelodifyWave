@@ -34,7 +34,7 @@ async function getSongs(folder) {
     // show all the songs in playlist
   
    let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
-     let b = await fetch(`/info.json`)
+     let b = await fetch(`/${folder}/info.json`)
             let respons = await b.json();
     songUL.innerHTML = ""
     for (const song of songs) {
@@ -50,7 +50,6 @@ async function getSongs(folder) {
                             </div> </li>`;
 
     }
-
     
     //attach eventlistener to each song
 
@@ -75,7 +74,7 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`songs/`);
+    let a = await fetch(`/songs/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -86,11 +85,11 @@ async function displayAlbums() {
             const e = array[index];
             
         
-        if (e.href.includes("songs")) {
+        if (e.href.includes("/songs")) {
             let folder = (e.href.split("/").slice(-2)[0]);
             //get metadata of folder
 
-            let a = await fetch(`songs/${folder}/info.json`)
+            let a = await fetch(`/songs/${folder}/info.json`)
             let response = await a.json();
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card">
                         <div  class="play">
@@ -106,7 +105,7 @@ async function displayAlbums() {
                                 </g>
                             </svg>
                         </div>
-                        <img src="songs/${folder}/cover.jpg" alt="${response.title}">
+                        <img src="/songs/${folder}/cover.jpg" alt="${response.title}">
                         <h2>${response.title}</h2>
                         <p>${response.description}</p>
                     </div>
