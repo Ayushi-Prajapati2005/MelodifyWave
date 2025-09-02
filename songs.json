@@ -106,7 +106,8 @@
       { "title": "Aashayein", "file": "songs/Uplifting_(mood)/aashayein.mp3" },
       { "title": "Allah Ke Bande", "file": "songs/Uplifting_(mood)/allah-ke-bande.mp3" },
       { "title": "Bandeya Rey Bandeya", "file": "songs/Uplifting_(mood)/bandeya-rey-bandeya.mp3"}
-[
+    ]
+  },
   {
     "folder": "ncs",
     "cover": "songs/ncs/cover.jpg",
