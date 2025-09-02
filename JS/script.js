@@ -34,7 +34,7 @@ async function getSongs(folder) {
     // show all the songs in playlist
   
    let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
-     let b = await fetch(`/${folder}/info.json`)
+     let b = await fetch(`/info.json`)
             let respons = await b.json();
     songUL.innerHTML = ""
     for (const song of songs) {
