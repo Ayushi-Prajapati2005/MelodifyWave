@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/CSS/(.*)", "dest": "/CSS/$1" },
+    { "src": "/JS/(.*)", "dest": "/JS/$1" },
+    { "src": "/img/(.*)", "dest": "/img/$1" },
+    { "src": "/songs/(.*)", "dest": "/songs/$1" },
+    { "src": "/favicon.ico", "dest": "/favicon.ico" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
