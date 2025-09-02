@@ -50,6 +50,7 @@ async function getSongs(folder) {
                             </div> </li>`;
 
     }
+
     
     //attach eventlistener to each song
 
