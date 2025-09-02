@@ -85,7 +85,7 @@ async function displayAlbums() {
             const e = array[index];
             
         
-        if (e.href.includes("/songs")) {
+          if (e.href.includes("/songs") && !e.href.includes(".htaccess")) {
             let folder = (e.href.split("/").slice(-2)[0]);
             //get metadata of folder
 
