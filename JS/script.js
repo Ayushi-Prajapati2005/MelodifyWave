@@ -15,7 +15,7 @@ function secondsToMinutesSeconds(seconds) {
 // load songs.json
 async function loadSongsJson() {
     try {
-        let res = await fetch("/songs.json");
+        let res = await fetch("songs.json");
         if (!res.ok) throw new Error("songs.json not found");
         songData = await res.json();
     } catch (err) {
