@@ -27,7 +27,7 @@ async function getSongs(folder) {
     for (let i = 0; i < as.length; i++) {
         const element = as[i];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`/${folder}/`)[1]);
+            songs.push(element.href.split(`songs/${folder}/`)[1]);
         }
     }
 
@@ -74,7 +74,7 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`/songs/`);
+    let a = await fetch(`songs/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
