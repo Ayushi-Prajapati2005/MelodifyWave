@@ -12,13 +12,13 @@ function secondsToMinutesSeconds(seconds) {
     return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
 }
 
-// fetch songs.json once
+// load songs.json
 async function loadSongsJson() {
     let res = await fetch("/songs.json");
     songData = await res.json();
 }
 
-// get songs of a folder from json
+// get songs of a folder from JSON
 async function getSongs(folder) {
     currfolder = folder;
     let folderObj = songData.find(f => f.folder === folder);
@@ -43,6 +43,7 @@ async function getSongs(folder) {
         </li>`;
     });
 
+    // attach click events to play now
     Array.from(songUL.getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", () => {
             playMusic(e.querySelector(".info div").innerHTML.trim());
@@ -52,19 +53,19 @@ async function getSongs(folder) {
     return songs;
 }
 
-// play a song
+// play music
 const playMusic = (track, pause = false) => {
-    let songObj = songs.find(s => s.includes(track));
-    if (!songObj) return;
+    let songFile = songs.find(s => s.includes(track));
+    if (!songFile) return;
 
-    currentSong.src = songObj;
+    currentSong.src = `/${currfolder}/` + track;
     if (!pause) currentSong.play();
-    document.querySelector(".songinfo").innerHTML = track;
+    document.querySelector(".songinfo").innerHTML = decodeURI(track);
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
     document.getElementById("play").src = currentSong.paused ? "img/play.svg" : "img/pause.svg";
 }
 
-// display albums/cards from json
+// display albums/cards (same functionality as your snippet)
 async function displayAlbums() {
     let cardContainer = document.querySelector(".cardContainer");
     cardContainer.innerHTML = "";
@@ -86,6 +87,7 @@ async function displayAlbums() {
         </div>`;
     });
 
+    // attach click to load playlist
     Array.from(document.getElementsByClassName("card")).forEach(card => {
         card.addEventListener("click", async item => {
             songs = await getSongs(item.currentTarget.dataset.folder);
@@ -94,10 +96,10 @@ async function displayAlbums() {
     });
 }
 
-// main function
+// main
 async function main() {
     await loadSongsJson();
-    await getSongs("ncs");
+    await getSongs("ncs"); // default folder
     playMusic(songs[0], true);
     displayAlbums();
 
