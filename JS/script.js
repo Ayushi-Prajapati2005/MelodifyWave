@@ -1,10 +1,11 @@
 console.log("listen melodify!!!!");
+
 let currentSong = new Audio();
 let songs = [];
 let currfolder = "";
 let songData = [];
 
-// convert seconds to mm:ss
+// Convert seconds to mm:ss
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) return "00:00";
     const minutes = Math.floor(seconds / 60);
@@ -12,10 +13,10 @@ function secondsToMinutesSeconds(seconds) {
     return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
 }
 
-// load songs.json
+// Load songs.json
 async function loadSongsJson() {
     try {
-        let res = await fetch("songs.json");
+        let res = await fetch("/songs.json");
         if (!res.ok) throw new Error("songs.json not found");
         songData = await res.json();
     } catch (err) {
@@ -24,16 +25,14 @@ async function loadSongsJson() {
     }
 }
 
-// get songs of a folder from JSON
+// Get songs of a folder from JSON
 async function getSongs(folder) {
     currfolder = folder;
     let folderObj = songData.find(f => f.folder === folder);
     if (!folderObj) return [];
 
-    // build full paths for audio files
-    songs = folderObj.songs.map(s => `${folderObj.folder}/${s.file}`);
+    songs = folderObj.songs.map(s => s.file);
 
-    // populate playlist
     let songUL = document.querySelector(".songList ul");
     songUL.innerHTML = "";
 
@@ -51,29 +50,29 @@ async function getSongs(folder) {
         </li>`;
     });
 
-    // attach click events to play now
+    // Attach click events to each song
     Array.from(songUL.getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", () => {
-            let clickedTitle = e.querySelector(".info div").innerHTML.trim();
-            let songFile = folderObj.songs.find(s => s.title === clickedTitle);
-            if (songFile) playMusic(`${folderObj.folder}/${songFile.file}`);
+            playMusic(e.querySelector(".info div").innerHTML.trim());
         });
     });
 
     return songs;
 }
 
-// play music
+// Play music
 const playMusic = (track, pause = false) => {
-    currentSong.src = `/${track}`;
+    let songObj = songs.find(s => s.includes(track));
+    if (!songObj) return;
+
+    currentSong.src = songObj;
     if (!pause) currentSong.play();
-    document.querySelector(".songinfo").innerHTML = decodeURI(track.split("/").pop());
+    document.querySelector(".songinfo").innerHTML = decodeURI(track);
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
-    const playBtn = document.getElementById("play");
-    playBtn.src = currentSong.paused ? "img/play.svg" : "img/pause.svg";
+    document.getElementById("play").src = currentSong.paused ? "img/play.svg" : "img/pause.svg";
 }
 
-// display albums/cards
+// Display albums/cards from JSON
 async function displayAlbums() {
     let cardContainer = document.querySelector(".cardContainer");
     cardContainer.innerHTML = "";
@@ -95,29 +94,29 @@ async function displayAlbums() {
         </div>`;
     });
 
-    // attach click to load playlist and play first song
+    // Load playlist when card clicked
     Array.from(document.getElementsByClassName("card")).forEach(card => {
         card.addEventListener("click", async item => {
-            let folderName = item.currentTarget.dataset.folder;
-            let folderSongs = await getSongs(folderName);
-            if (folderSongs.length > 0) playMusic(folderSongs[0]);
+            songs = await getSongs(item.currentTarget.dataset.folder);
+            playMusic(songs[0]);
         });
     });
 }
 
-// main
+// Main function
 async function main() {
     await loadSongsJson();
-    let defaultFolder = songData[0]?.folder || "";
-    if (defaultFolder) {
-        await getSongs(defaultFolder); // default folder
-        if (songs.length > 0) playMusic(songs[0], true);
+
+    // Load default folder
+    if (songData.length > 0) {
+        await getSongs(songData[0].folder);
+        playMusic(songs[0], true);
     }
+
     displayAlbums();
 
+    // Play/pause
     const playBtn = document.getElementById("play");
-
-    // play/pause
     playBtn.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play();
@@ -128,34 +127,34 @@ async function main() {
         }
     });
 
-    // time update
+    // Time update
     currentSong.addEventListener("timeupdate", () => {
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`;
         document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
     });
 
-    // seekbar
+    // Seekbar
     document.querySelector(".seekbar").addEventListener("click", e => {
         let percent = e.offsetX / e.target.getBoundingClientRect().width;
         currentSong.currentTime = currentSong.duration * percent;
         document.querySelector(".circle").style.left = percent * 100 + "%";
     });
 
-    // prev/next
+    // Prev/Next
     document.getElementById("previous").addEventListener("click", () => {
-        let index = songs.indexOf(currentSong.src.slice(1)); // remove leading '/'
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
         if (index > 0) playMusic(songs[index - 1]);
     });
     document.getElementById("next").addEventListener("click", () => {
-        let index = songs.indexOf(currentSong.src.slice(1));
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
         if (index < songs.length - 1) playMusic(songs[index + 1]);
     });
 
-    // hamburger menu
+    // Hamburger menu
     document.querySelector(".hamburger").addEventListener("click", () => document.querySelector(".left").style.left = "0");
     document.querySelector(".close").addEventListener("click", () => document.querySelector(".left").style.left = "-450px");
 
-    // volume
+    // Volume
     const volumeInput = document.querySelector(".range input");
     const volumeIcon = document.querySelector(".volume>img");
     volumeInput.addEventListener("change", e => {
