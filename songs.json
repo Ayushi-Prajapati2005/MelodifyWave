@@ -1,0 +1,137 @@
+[
+  {
+    "folder": "ncs",
+    "cover": "songs/ncs/cover.jpg",
+    "songs": [
+      { "title": "Kabira", "file": "songs/ncs/kabira.mp3" },
+      { "title": "Kaun Tujhe", "file": "songs/ncs/kaun-tujhe.mp3" },
+      { "title": "Sawaar Loo", "file": "songs/ncs/sawaar-loo.mp3" },
+      { "title": "Tere Bina", "file": "songs/ncs/tere-bina.mp3" },
+      { "title": "Zehnaseeb", "file": "songs/ncs/zehnaseeb.mp3" }
+    ]
+  },
+  {
+    "folder": "Angry_(mood)",
+    "cover": "songs/Angry_(mood)/cover.jpg",
+    "songs": [
+      { "title": "ANIMAL ARJAN VAILLY", "file": "songs/Angry_(mood)/ANIMAL_ ARJAN VAILLY.mp3" },
+      { "title": "Aarambh Hai Prachand", "file": "songs/Angry_(mood)/aarambh hai prachand.mp3" },
+      { "title": "Bulleya Ae Dil Hai Mushkil", "file": "songs/Angry_(mood)/bulleya ae dil hai mushkil.mp3" },
+      { "title": "Jashn-e-ishqa", "file": "songs/Angry_(mood)/jashn-e-ishqa.mp3" },
+      { "title": "Sadda Haq", "file": "songs/Angry_(mood)/sadda-haq.mp3" }
+    ]
+  },
+  {
+    "folder": "Bright_(mood)",
+    "cover": "songs/Bright_(mood)/cover.jpg",
+    "songs": [
+      { "title": "Ambarsariya", "file": "songs/Bright_(mood)/ambarsariya.mp3" },
+      { "title": "Mann Mera", "file": "songs/Bright_(mood)/mann-mera.mp3" },
+      { "title": "Tere Naina", "file": "songs/Bright_(mood)/tere-naina.mp3" },
+      { "title": "Tu Jaane Na", "file": "songs/Bright_(mood)/tu-jaane-na.mp3" },
+      { "title": "Ye Tune Kya Kiya", "file": "songs/Bright_(mood)/ye-tune-kya-kiya.mp3" }
+    ]
+  },
+  {
+    "folder": "Chill_(mood)",
+    "cover": "songs/Chill_(mood)/cover.jpg",
+    "songs": [
+      { "title": "Tera Yaar Hoon Main", "file": "songs/Chill_(mood)/Tera Yaar Hoon Main.mp3" },
+      { "title": "Khuda Jaane", "file": "songs/Chill_(mood)/khuda-jaane.mp3" },
+      { "title": "Mast Magan", "file": "songs/Chill_(mood)/mast-magan.mp3" },
+      { "title": "O Rangrez", "file": "songs/Chill_(mood)/o-rangrez.mp3" }
+    ]
+  },
+  {
+    "folder": "Funky_(mood)",
+    "cover": "songs/Funky_(mood)/cover.jpg",
+    "songs": [
+      { "title": "Maston Ka Jhund", "file": "songs/Funky_(mood)/Maston Ka Jhund.mp3" },
+      { "title": "Chunnari Chunnari", "file": "songs/Funky_(mood)/chunnari-chunnari.mp3" },
+      { "title": "Koi Jaye To Le Aaye", "file": "songs/Funky_(mood)/koi-jaye-to-le-aaye.mp3" },
+      { "title": "Le Le Chumma Le Le", "file": "songs/Funky_(mood)/le-le-chumma-le-le.mp3" },
+      { "title": "O Meri Laila", "file": "songs/Funky_(mood)/o-meri-laila.mp3" }
+    ]
+  },
+  {
+    "folder": "Love_(mood)",
+    "cover": "songs/Love_(mood)/cover.jpg",
+    "songs": [
+      { "title": "Raataan Lambiyan", "file": "songs/Love_(mood)/Raataan Lambiyan.mp3" },
+      { "title": "Agar Tum Saath Ho", "file": "songs/Love_(mood)/agar-tum-saath-ho.mp3" },
+      { "title": "Bol Na Halke Halke", "file": "songs/Love_(mood)/bol-na-halke-halke.mp3" },
+      { "title": "Dekha Hazaro Dafaa", "file": "songs/Love_(mood)/dekha-hazaro-dafaa.mp3" },
+      { "title": "Humdard", "file": "songs/Love_(mood)/humdard.mp3" },
+      { "title": "Jiya Dhadak Dhadak Jaye", "file": "songs/Love_(mood)/jiya-dhadak-dhadak-jaye.mp3" },
+      { "title": "Lo Maan Liya", "file": "songs/Love_(mood)/lo-maan-liya.mp3" },
+      { "title": "Mann Mera", "file": "songs/Love_(mood)/mann-mera.mp3" },
+      { "title": "Shayad", "file": "songs/Love_(mood)/shayad.mp3" },
+      { "title": "Tera Hone Laga", "file": "songs/Love_(mood)/tera-hone-laga.mp3" },
+      { "title": "Tu Jaane Na", "file": "songs/Love_(mood)/tu-jaane-na.mp3" }
+    ]
+  },
+  {
+    "folder": "Old_Songs",
+    "cover": "songs/Old_Songs/cover.jpg",
+    "songs": [
+      { "title": "Itna Na Mujhse Tu Pyaar Badha", "file": "songs/Old_Songs/Itna Na Mujhse Tu Pyaar Badha.mp3" },
+      { "title": "Aa Chalke Tujhe", "file": "songs/Old_Songs/aa-chalke-tujhe.mp3" },
+      { "title": "Dekha Ek Khwab", "file": "songs/Old_Songs/dekha-ek-khwab.mp3" },
+      { "title": "Ek Pyar Ka Naghma", "file": "songs/Old_Songs/ek-pyar-ka-naghma.mp3" },
+      { "title": "Lag Jaa Gale", "file": "songs/Old_Songs/lag-jaa-gale.mp3" },
+      { "title": "Tum Agar Saath Dene Ka Vada Karo", "file": "songs/Old_Songs/tum-agar-saath-dene-ka-vada-karo-.mp3" },
+      { "title": "Yeh Ratein Yeh Mausam", "file": "songs/Old_Songs/yeh-ratein-yeh-mausam.mp3" }
+    ]
+  },
+  {
+    "folder": "Rahat Fateh Ali Khan",
+    "cover": "songs/Rahat Fateh Ali Khan/cover.jpg",
+    "songs": [
+      { "title": "Aaj Din Chadheya", "file": "songs/Rahat Fateh Ali Khan/aaj-din-chadheya.mp3" },
+      { "title": "Isq Risk", "file": "songs/Rahat Fateh Ali Khan/isq-risk.mp3" },
+      { "title": "Jiya Dhadak Dhadak Jaye", "file": "songs/Rahat Fateh Ali Khan/jiya-dhadak-dhadak-jaye.mp3" },
+      { "title": "Meray Paas Tum Ho", "file": "songs/Rahat Fateh Ali Khan/meray-paas-tum-ho.mp3" },
+      { "title": "Sajdaa", "file": "songs/Rahat Fateh Ali Khan/sajdaa.mp3" },
+      { "title": "Tum Jo Aaye", "file": "songs/Rahat Fateh Ali Khan/tum-jo-aaye.mp3" },
+      { "title": "Tumhe Dillagi", "file": "songs/Rahat Fateh Ali Khan/tumhe-dillagi.mp3" },
+      { "title": "Zaroori Tha", "file": "songs/Rahat Fateh Ali Khan/zaroori tha.mp3" }
+    ]
+  },
+  {
+    "folder": "Uplifting_(mood)",
+    "cover": "songs/Uplifting_(mood)/cover.jpg",
+    "songs": [
+      { "title": "KAR HAR MAIDAAN FATEH", "file": "songs/Uplifting_(mood)/KAR HAR MAIDAAN FATEH.mp3" },
+      { "title": "Aarambh Hai Prachand", "file": "songs/Uplifting_(mood)/aarambh hai prachand.mp3" },
+      { "title": "Aashayein", "file": "songs/Uplifting_(mood)/aashayein.mp3" },
+      { "title": "Allah Ke Bande", "file": "songs/Uplifting_(mood)/allah-ke-bande.mp3" },
+      { "title": "Bandeya Rey Bandeya", "file": "songs/Uplifting_(mood)/bandeya-rey-bandeya.mp3"}
+    ]
+  },
+  {
+    "folder": "ncs",
+    "cover": "songs/ncs/cover.jpg",
+    "songs": [
+      { "title": "Kabira", "file": "songs/ncs/kabira.mp3" },
+      { "title": "Kaun Tujhe", "file": "songs/ncs/kaun-tujhe.mp3" },
+      { "title": "Sawaar Loo", "file": "songs/ncs/sawaar-loo.mp3" },
+      { "title": "Tere Bina", "file": "songs/ncs/tere-bina.mp3" },
+      { "title": "Zehnaseeb", "file": "songs/ncs/zehnaseeb.mp3" }
+    ]
+  },
+  {
+    "folder": "cs",
+    "cover": "songs/cs/cover.jpg",
+    "songs": [
+      { "title": "Azaan Sami Ik Lamha", "file": "songs/cs/azaan-sami-ik-lamha.mp3" },
+      { "title": "Chal Diye Tum Kahan", "file": "songs/cs/chal-diye-tum-kahan.mp3" },
+      { "title": "Ibadat Ishq-e-Laa", "file": "songs/cs/ibadat-ishq-e-laa.mp3" },
+      { "title": "Iqtidar", "file": "songs/cs/iqtidar.mp3" },
+      { "title": "Main Haar Giyan", "file": "songs/cs/main-haar-giyan.mp3" },
+      { "title": "Meray Paas Tum Ho", "file": "songs/cs/meray-paas-tum-ho.mp3" },
+      { "title": "Sajna Da Dil Torya", "file": "songs/cs/sajna-da-dil-torya.mp3" },
+      { "title": "Tera Mera Hai Pyar Amar", "file": "songs/cs/tera-mera-hai-pyar-amar.mp3" },
+      { "title": "Tu Jaan Le Ishq Murshid Mera", "file": "songs/cs/tu-jaan-le-ishq-murshid-mera.mp3" }
+    ]
+  }
+]
