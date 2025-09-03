@@ -154,6 +154,7 @@ body {
     color: rgb(82, 82, 82);
     font-weight: bold;
     border: none;
+    padding: 10px;
     outline: none;
     cursor: pointer;
     font-size: 15px;
@@ -340,12 +341,14 @@ body {
 @media (max-width: 1200px) {
     .left {
         background-color: black;
-        position: absolute;
-        left: -200%;
+        position: fixed;
+        top: 0;
+        left: -150%;
         transition: all 0.3s;
         z-index: 1;
         width: 373px;
         padding: 0;
+        height: 100vh;
     }
 
     .left .close {
@@ -410,12 +413,47 @@ body {
 
     .cardContainer {
         max-height: 59vh;
+        margin-bottom: 35vh;
     }
+
 
 }
 
 @media (max-width: 500px) {
     .card {
-        width: 90vw;
+        width: 100%;
     }
+
+    .buttons>* {
+        margin: 1px;
+    }
+
+    .header {
+        padding: 3px;
+    }
+
+    .cardContainer {
+        max-height: unset;
+        overflow-y: unset;
+    }
+
+    .spotifyPlaylist h1 {
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .header {
+        padding: 7px;
+    }
+
+    .library {
+        height: 85vh;
+    }
+
+    .left {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+    }
+
 }
