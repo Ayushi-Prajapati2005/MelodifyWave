@@ -18,7 +18,7 @@ function secondsToMinutesSeconds(seconds) {
 }
 async function getSongs(folder) {
     currfolder = folder;
-    let a = await fetch(`songs/${folder}/`);
+    let a = await fetch(`/${folder}/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -27,14 +27,14 @@ async function getSongs(folder) {
     for (let i = 0; i < as.length; i++) {
         const element = as[i];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`songs/${folder}/`)[1]);
+            songs.push(element.href.split(`/${folder}/`)[1]);
         }
     }
 
     // show all the songs in playlist
 
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
-    let b = await fetch(`songs/${folder}/info.json`)
+    let b = await fetch(`/${folder}/info.json`)
     let respons = await b.json();
     songUL.innerHTML = ""
     for (const song of songs) {
@@ -74,7 +74,7 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`songs/`);
+    let a = await fetch(`/songs/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
